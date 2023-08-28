@@ -6,36 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="./assets/css/style.css" rel="stylesheet">
-    <style>
-        .is-empty-label {
-            border: 1px solid red;
-        }
-    </style>
-    <script>
-        // Funzione per la validazione del modulo di login
-        function validateForm() {
-            var nickname = document.getElementById("nickname");
-            var password = document.getElementById("password");
-
-            var valid = true;
-
-            if (nickname.value.trim() === "") {
-                nickname.classList.add("is-empty-label");
-                valid = false;
-            } else {
-                nickname.classList.remove("is-empty-label");
-            }
-
-            if (password.value === "") {
-                password.classList.add("is-empty-label");
-                valid = false;
-            } else {
-                password.classList.remove("is-empty-label");
-            }
-
-            return valid;
-        }
-    </script>
+    <script src="./assets/js/validators.js"></script>
 </head>
 
 <body>
@@ -79,6 +50,7 @@
             }
         } else {
             $login_error = "Fill in all fields!";
+            // Controllo aggiuntivi, si eseguirebbe solo in caso in cui il Javascript fallisca
         }
     }
     ?>
@@ -91,7 +63,7 @@
     <?php } ?>
 
     <div class="container mt-5">
-        <div class="row justify-content-center align-items-center" >
+        <div class="row justify-content-center align-items-center " >
             <div class="col-md-6 col-lg-4">
                 <div class="card">
                     <div class="card-body">

@@ -54,7 +54,7 @@ function startNewsession(){
 </head>
 
 <body>
-    <div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
         <div class="col-md-6 col-lg-4">
             <div class="card">
                 <div class="card-body">
@@ -100,6 +100,7 @@ function startNewsession(){
             </div>
         </div>
     </div>
+    <?php include "../html/footer.html"; ?>
 </body>
 
 </html>

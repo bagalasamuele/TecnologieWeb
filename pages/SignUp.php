@@ -42,7 +42,6 @@ function startNewsession(){
             }
     }
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -51,14 +50,16 @@ function startNewsession(){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="container mt-5">
-        <div class="card">
-            <div class="card-body">
-                <form id="container_login" action="<?php echo $_SERVER['PHP_SELF']?>" method="post" class="row g-3">
-                    <div class="col-md-6">
+    <div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+        <div class="col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <form id="container_login" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
                         <h3 class="mb-4">Inserisci i tuoi dati</h3>
                         <div class="mb-3">
                             <label for="Nome" class="form-label">Nome:</label>
@@ -73,8 +74,6 @@ function startNewsession(){
                             <input type="password" name="checkpassword" class="form-control" required="required"
                                 pattern="\w{5,}">
                         </div>
-                    </div>
-                    <div class="col-md-6">
                         <div class="mb-3">
                             <label class="form-label">Ruolo:</label>
                             <select name="role" class="form-select">
@@ -94,11 +93,11 @@ function startNewsession(){
                             <input type="submit" name="submit" value="Registrati" class="btn btn-primary">
                         </div>
                         <div class="mb-3">
-                            <input type="button" onclick="document.location.href='../index.php';" value="Accedi"
-                                class="btn btn-secondary">
+                            <input type="button" onclick="document.location.href='../index.php';"
+                                value="Accedi" class="btn btn-secondary">
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

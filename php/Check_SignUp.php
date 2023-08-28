@@ -55,7 +55,7 @@
                                     <div class="box-text text-center ">
                                         <p class="pt-3 ">
                                             Torna alla registrazione:
-                                            <form action="SignUp.php" method="get">
+                                            <form action="../pages/SignUp.php" method="get">
                                                 <p><label><input type="submit" name="submit"/></label></p>  
                                             </form> 
                                         </p>

@@ -31,7 +31,7 @@
                             </div>
 
                             <div >
-                            <p><input type="button" onclick="document.location.href='php/Sign_Up.php';" value="Registrati" class="reg"></p>
+                            <p><input type="button" onclick="document.location.href='./pages/SignUp.php';" value="Registrati" class="reg"></p>
                         </div> 
                         </form>
                     </div>
@@ -70,7 +70,7 @@
                                     $_SESSION['session_userRole'] = $user_role;
 
                                 }
-                                header('Location: php/Home.php');
+                                header('Location: pages/Home.php');
                                 exit();
                             }else{
                                 ?><h5>Nickame o password errati</h5><?php

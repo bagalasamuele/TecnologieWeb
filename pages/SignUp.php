@@ -44,43 +44,66 @@ function startNewsession(){
 ?>
 
 <!DOCTYPE html>
-<meta charset="UTF-8">
 <html>
-    <head>
-        <link href="../css/login.css" type="text/css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="InserimentoDati">
-            <form id ="container_login" action="<?php echo $_SERVER['PHP_SELF']?>" method="post" >
-                <h3>Inserisci i tuoi dati</h3>
-                <p><label for="Nome">Nome: </label>
-                <input type="text" name="name" required="required" pattern="[A-Za-z]*" oninvalid="this.setCustomValidity('Inserisci solo lettere maiuscole o minuscole')" oninput="setCustomValidity('')"/></p>
-                <p><label for="Cognome">Cognome: </label>
-                <input type="text" name="lastname" required="required" pattern="[A-Za-z]*" oninvalid="setCustomValidity('Inserisci solo lettere maiuscole o minuscole')" oninput="setCustomValidity('')"/></p>
-                <p><label for="Nickname">Nickname: </label>
-                <input type="text" name="nickname" required="required" pattern="\w*" oninvalid="setCustomValidity('Inserisci lettere e/o numeri')" oninput="setCustomValidity('')"/></p>
-                <p><label for="Email">E-mail: </label>
-                <input type="email" name="email" required="required"/></p>
-                <p><label for="Password">Password: </label>
-                <input type="password" name="pwd" required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="setCustomValidity('Inserisci almeno 8 caratteri, una lettera minuscola, una maiuscola, un numero')" oninput="setCustomValidity('')"/></p>
-                <p><label for="Confermapassword">Conferma password: </label>
-                <input type="password" name="checkpassword" required="required" pattern="\w{5,}" /></p>
-                <p>
-                    Ruolo: <select name="role" class="select">
-                            <option value="user">User</option>
-                            <option value="admin">Admin</option>
-                        </select>
-                </p>
-                <p>
-                    Regime alimentare: <select name="diet" class="select">
-                            <option value="onnivoro">Onnivoro</option>
-                            <option value="vegetariano">Vegetariano</option>
-                            <option value="vegano">Vegano</option>
-                        </select>
-                </p>
-                <p><input type="submit" name="submit" value="Registrati" class="reg" /></p>
-                <p><input type="button" onclick="document.location.href='Index.php';" value="Accedi" class="log"></p>
-            </form>
+
+<head>
+    <title>Registrati</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <form id="container_login" action="<?php echo $_SERVER['PHP_SELF']?>" method="post" class="row g-3">
+                    <div class="col-md-6">
+                        <h3 class="mb-4">Inserisci i tuoi dati</h3>
+                        <div class="mb-3">
+                            <label for="Nome" class="form-label">Nome:</label>
+                            <input type="text" name="name" class="form-control" required="required"
+                                pattern="[A-Za-z]*"
+                                oninvalid="this.setCustomValidity('Inserisci solo lettere maiuscole o minuscole')"
+                                oninput="setCustomValidity('')">
+                        </div>
+                        <!-- Altri input simili -->
+                        <div class="mb-3">
+                            <label for="Confermapassword" class="form-label">Conferma password:</label>
+                            <input type="password" name="checkpassword" class="form-control" required="required"
+                                pattern="\w{5,}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Ruolo:</label>
+                            <select name="role" class="form-select">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Regime alimentare:</label>
+                            <select name="diet" class="form-select">
+                                <option value="onnivoro">Onnivoro</option>
+                                <option value="vegetariano">Vegetariano</option>
+                                <option value="vegano">Vegano</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <input type="submit" name="submit" value="Registrati" class="btn btn-primary">
+                        </div>
+                        <div class="mb-3">
+                            <input type="button" onclick="document.location.href='../index.php';" value="Accedi"
+                                class="btn btn-secondary">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
+

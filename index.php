@@ -3,10 +3,7 @@
 
 <head>
     <title>Login</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./assets/css/style.scss" rel="stylesheet">
-    <script src="./assets/js/validators.js"></script>
+    <?php include "./html/head.html"; ?>
 </head>
 
 <body>

@@ -1,0 +1,61 @@
+<header>
+    <div class="px-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <div class="col-md-4">
+                    <a href="/TecnologieWeb/pages/Home.php"
+                        class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                        <img src="../assets/images/NovaVita_Logo.png" class="w-100" alt="Logo">
+                    </a>
+                </div>
+
+                <div class="col-md-8 d-flex flex-row-reverse">
+                    <ul class="nav my-2 justify-content-center my-md-0 text-small">
+                        <li>
+                            <a href="#" class="nav-link text-secondary">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                Products
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                Customers
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="px-3 py-2 border-bottom mb-3">
+        <div class="container d-flex flex-wrap justify-content-center">
+
+
+
+            <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" method="get" action="/TecnologieWeb/php/Search.php">
+                <input type="search" name="nomeR" class="small" class="form-control" placeholder="Search..."
+                    aria-label="Search">
+                <input type="submit" onclick="document.location.href='/TecnologieWeb/php/Search.php';" value="Cerca" class="button">
+            </form>
+
+            <div class="text-end">
+                <input type="button" class="btn btn-primary" onclick="document.location.href='/TecnologieWeb/php/Logout.php';"
+                    value="Log out" class="button">
+            </div>
+        </div>
+    </div>
+</header>

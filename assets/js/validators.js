@@ -30,43 +30,75 @@ function validateForm() {
 
 // Funzione validazione registrazione
 function validateSingUp() {
-    var nicknameInput = document.querySelector('input[name="nickname"]');
-    var passwordInput = document.querySelector('input[name="pwd"]');
-    var confirmPasswordInput = document.querySelector('input[name="checkpassword"]');
+    var name = document.getElementById("name");
+    var surname = document.getElementById("surname");
+    var newNickname = document.getElementById("newNickname");
+    var newPassword = document.getElementById("newPassword");
+    var checkPassword = document.getElementById("checkPassword");
+    var email = document.getElementById("email");
 
     var valid = true;
 
-    if (nicknameInput.value.trim() === "") {
-        nicknameInput.classList.add("is-empty-label");
+    if (newNickname.value.trim() === "") {
+        newNickname.classList.add("is-empty-label");
         valid = false;
-        showError(nicknameInput, "Nickname is required");
+        showError(newNickname, "Nickname is required");
     } else {
-        clearError(nicknameInput);
-        nicknameInput.classList.remove("is-empty-label");
+        clearError(newNickname);
+        newNickname.classList.remove("is-empty-label");
     }
 
-    if (passwordInput.value === "") {
-        passwordInput.classList.add("is-empty-label");
+
+    if (surname.value.trim() === "") {
+        surname.classList.add("is-empty-label");
         valid = false;
-        showError(passwordInput, "Password is required");
+        showError(surname, "Surname is required");
     } else {
-        clearError(passwordInput);
-        passwordInput.classList.remove("is-empty-label");
+        clearError(surname);
+        surname.classList.remove("is-empty-label");
     }
 
-    if (confirmPasswordInput.value === "") {
-        confirmPasswordInput.classList.add("is-empty-label");
+    if (newPassword.value === "") {
+        newPassword.classList.add("is-empty-label");
         valid = false;
-        showError(confirmPasswordInput, "Confirm Password is required");
+        showError(newPassword, "Password is required");
     } else {
-        clearError(confirmPasswordInput);
-        confirmPasswordInput.classList.remove("is-empty-label");
+        clearError(newPassword);
+        newPassword.classList.remove("is-empty-label");
     }
 
-    if (passwordInput.value !== confirmPasswordInput.value) {
+
+
+
+    if (name.value === "") {
+        name.classList.add("is-empty-label");
         valid = false;
-        showError(confirmPasswordInput, "Passwords do not match");
+        showError(name, "Name is required");
+    } else {
+        clearError(name);
+        name.classList.remove("is-empty-label");
     }
+
+
+    if (checkPassword.value === "") {
+        checkPassword.classList.add("is-empty-label");
+        valid = false;
+        showError(checkPassword, "Confirm Password is required");
+    } else {
+        clearError(checkPassword);
+        checkPassword.classList.remove("is-empty-label");
+    }
+
+
+    if (email.value === "") {
+        email.classList.add("is-empty-label");
+        valid = false;
+        showError(email, "Email is required");
+    } else {
+        clearError(email);
+        email.classList.remove("is-empty-label");
+    }
+
 
     return valid;
 }
@@ -113,7 +145,7 @@ if (passwordInput) {
 // Add event listener to the form submission
 var signUpForm = document.getElementById("container_signup");
 if (signUpForm) {
-    signUpForm.addEventListener("submit", function(event) {
+    signUpForm.addEventListener("submit", function (event) {
         if (!validateSingUp()) {
             event.preventDefault(); // Prevent form submission if validation fails
         }

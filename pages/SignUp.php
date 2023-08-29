@@ -19,7 +19,7 @@
                         <h5 class="card-title text-center"> Register </h5>
                         <!-- Form di login -->
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
-                            onsubmit="return validateForm();">
+                            onsubmit="return validateSingUp();">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name:</label>
                                 <input type="text" class="form-control" id="name" name="name">
@@ -29,21 +29,21 @@
                                 <input type="text" class="form-control" id="surname" name="surname">
                             </div>
                             <div class="mb-3">
-                                <label for="nickname" class="form-label">Nickname:</label>
-                                <input type="text" class="form-control" id="nickname" name="nickname">
+                                <label for="newNickname" class="form-label">Nickname:</label>
+                                <input type="text" class="form-control" id="newNickname" name="newNickname">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email:</label>
                                 <input type="email" class="form-control" id="email" name="email">
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Password:</label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <label for="newPassword" class="form-label">Password:</label>
+                                <input type="password" class="form-control" id="newPassword" name="newPassword">
                             </div>
 
                             <div class="mb-3">
-                                <label for="CheckPassword" class="form-label">Password:</label>
-                                <input type="password" class="form-control" id="checkpassword" name="checkpassword">
+                                <label for="checkPassword" class="form-label">Confirm password :</label>
+                                <input type="password" class="form-control" id="checkPassword" name="checkPassword">
                             </div>
                             <div class="two-select-row col-md-12">
                                 <div class="mb-3 col-xs-12 col-md-6 px-1">

@@ -65,6 +65,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6 col-lg-4">
+               <div class="align-items-center my-5"><img src='./assets/images/NovaVita_Logo.png' class="w-100"></div> 
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title text-center">Login</h5>
@@ -79,7 +80,7 @@
                                 <label for="password" class="form-label">Password:</label>
                                 <input type="password" class="form-control" id="password" name="password">
                             </div>
-                            <button type="submit" class="btn btn-primary" name="submit">Login</button>
+                            <button type="submit" class="btn btn-primary w-100" name="submit">Login</button>
                             <div class="mt-3 text-center">
                                 Not a member yet? <a href="./pages/SignUp.php" class="reg">Register now</a>
                             </div>

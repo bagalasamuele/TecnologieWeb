@@ -3,9 +3,22 @@
 
 .is-empty-label {
     border: 1px solid red;
-}
-
-.error-message {
-margin-top: 5px;
-font-size: 12px;
-}
+  }
+  
+  .error-message {
+    margin-top: 5px;
+    font-size: 12px;
+  }
+  
+  .two-select-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  @media only screen and (max-width: 720px) {
+    .two-select-row {
+      display: flex;
+      flex-direction: column;
+    }
+  }

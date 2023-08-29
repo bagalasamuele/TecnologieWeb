@@ -63,14 +63,14 @@
     <?php } ?>
 
     <div class="container mt-5">
-        <div class="row justify-content-center align-items-center " >
+        <div class="row justify-content-center align-items-center">
             <div class="col-md-6 col-lg-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title text-center">Login</h5>
                         <!-- Form di login -->
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
-                            onsubmit="return validateForm();">
+                            onsubmit="return validateLogin();">
                             <div class="mb-3">
                                 <label for="nickname" class="form-label">Nickname:</label>
                                 <input type="text" class="form-control" id="nickname" name="nickname">

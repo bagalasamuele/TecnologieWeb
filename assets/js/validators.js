@@ -1,5 +1,5 @@
 // Funzione per la validazione del modulo di login
-function validateForm() {
+function validateLogin() {
 
     var nickname = document.getElementById("nickname");
     var password = document.getElementById("password");

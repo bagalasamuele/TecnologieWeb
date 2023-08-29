@@ -9,8 +9,58 @@
     <script src="../assets/js/validators.js"></script>
 </head>
 
-<body>
 
+<?php 
+function startNewsession(){
+    if(session_status() === true){
+        session_start();
+    }
+    session_destroy();
+    session_regenerate_id(true);
+    session_start();
+
+}
+    session_start();
+include "../php/DB_Connection.php";
+
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $lastname = $_POST['surname']; 
+    $nickname = $_POST['newNickname']; 
+    $email = $_POST['email'];
+    $pwd = md5($_POST['newPassword']); 
+    $checkpwd = md5($_POST['checkPassword']); 
+    $diet = $_POST['diet'];
+    $role = $_POST['role'];
+
+    if ($name && $lastname && $nickname && $email && $pwd && $checkpwd && $diet && $role) {
+        if ($pwd == $checkpwd) {
+            // Prepared statements per evitare SQL injection
+            $stmt = $db->prepare("INSERT INTO users(name, lastname, nickname, email, password, diet, role) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssssss", $name, $lastname, $nickname, $email, $pwd, $diet, $role);
+            if ($stmt->execute()) {
+                $query = $db->query("SELECT idUser FROM users WHERE nickname = '$nickname'");
+                foreach ($query as $row) {
+                    $_SESSION['idUser'] = $row['idUser'];
+                    $_SESSION['session_userRole'] = $role;
+                }
+                header('Location: ../php/Check_SignUp.php');
+                exit;
+            } else {
+                echo '<h5>Errore durante la registrazione</h5>';
+            }
+            $stmt->close();
+        } else {
+            echo '<h5>Password non corrispondenti</h5>';
+        }
+    } else {
+        echo '<h5>Riempire tutti i campi</h5>';
+    }
+}
+?>
+
+
+<body>
     <div class="container mt-5">
         <div class="row justify-content-center align-items-center ">
             <div class="col-md-6 col-lg-4">
@@ -18,7 +68,7 @@
                     <div class="card-body">
                         <h5 class="card-title text-center"> Register </h5>
                         <!-- Form di login -->
-                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
+                        <form id ="container_login" action="<?php echo $_SERVER['PHP_SELF']?>" method="post"
                             onsubmit="return validateSingUp();">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name:</label>
@@ -62,7 +112,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary" name="submit">Login</button>
+                            <button type="submit" class="btn btn-primary" name="submit">Sing Up</button>
                             <div class="mt-3 text-center">
                                 <a href="../index.php" class="reg">Sing in</a> to your account.
                             </div>

@@ -1,5 +1,5 @@
 <header>
-    <div class="px-3 bg-dark text-white">
+    <div class="px-3 bg-yellow text-white">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <div class="col-md-4">
@@ -12,28 +12,18 @@
                 <div class="col-md-8 d-flex flex-row-reverse">
                     <ul class="nav my-2 justify-content-center my-md-0 text-small">
                         <li>
-                            <a href="#" class="nav-link text-secondary">
+                            <a href="#" class="nav-link text-white ">
                                 Home
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link text-white">
-                                Dashboard
+                            <a href="#" class="nav-link text-secondary">
+                                My Cart
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link text-white">
-                                Orders
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link text-white">
-                                Products
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link text-white">
-                                Customers
+                            <a href="#" class="nav-link text-secondary">
+                                Sell Product
                             </a>
                         </li>
                     </ul>
@@ -46,15 +36,17 @@
 
 
 
-            <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" method="get" action="/TecnologieWeb/php/Search.php">
+            <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" method="get"
+                action="/TecnologieWeb/php/Search.php">
                 <input type="search" name="nomeR" class="small" class="form-control" placeholder="Search..."
                     aria-label="Search">
-                <input type="submit" onclick="document.location.href='/TecnologieWeb/php/Search.php';" value="Cerca" class="button">
+                <input type="submit" onclick="document.location.href='/TecnologieWeb/php/Search.php';" value="Cerca"
+                    class="button">
             </form>
 
             <div class="text-end">
-                <input type="button" class="btn btn-primary" onclick="document.location.href='/TecnologieWeb/php/Logout.php';"
-                    value="Log out" class="button">
+                <input type="button" class="btn btn-primary"
+                    onclick="document.location.href='/TecnologieWeb/php/Logout.php';" value="Log out" class="button">
             </div>
         </div>
     </div>

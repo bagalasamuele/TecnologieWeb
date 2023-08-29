@@ -2,13 +2,9 @@
 <?php include "../html/head.html"; ?>
 <?php include "../html/header.html"; ?>
 <?php
-
-
 session_start();
 include "../php/DB_Connection.php";
 include "../php/Check_Login.php";
-
-$rows = array(); // Inizializza $rows come un array vuoto
 
 if (isset($_POST['submit'])) {
     $nickname = $_POST['nickname'];
@@ -17,27 +13,31 @@ if (isset($_POST['submit'])) {
     if (empty($nickname) || empty($password)) {
         echo "Riempire tutti i campi";
     } else {
-        $nickname = strip_tags($nickname);
-        $nickname = $db->real_escape_string($nickname);
-        $password = strip_tags($password);
-        $password = $db->real_escape_string($password);
-        $password = md5($password);
-        $query = $db->query("SELECT idUtente, nickname FROM users WHERE nickname='$nickname' AND password='$password'");
-        if ($query->num_rows == 1) {
-            while ($row = $query->fetch_object()) {
-                $_SESSION['idUtente'] = $row->idUtente; // Corretto il nome della variabile
+        $nickname = $db->real_escape_string(strip_tags($nickname));
+        $password = $db->real_escape_string(strip_tags($password));
+
+        $query = $db->prepare("SELECT idUtente, nickname, password FROM users WHERE nickname = ?");
+        $query->bind_param("s", $nickname);
+        $query->execute();
+        $result = $query->get_result();
+
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+
+            if (password_verify($password, $row['password'])) {
+                $_SESSION['idUtente'] = $row['idUtente'];
+                header('Location: "/TecnologieWeb/index.php"');
+                exit;
+            } else {
+                echo 'Password errata';
             }
-            header('Location: "/TecnologieWeb/index.php"'); // Aggiunto chiusura delle virgolette
-            exit;
         } else {
-            echo 'Nickname o password errati';
+            echo 'Utente non trovato';
         }
     }
 }
 
-$rows = $db->query("SELECT nickname FROM users WHERE idUser='$_SESSION[idUser]'");
-
-
+$rows = $db->query("SELECT nickname FROM users WHERE idUser = '$_SESSION[idUser]'");
 ?>
 
 <body>

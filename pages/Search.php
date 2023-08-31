@@ -18,37 +18,36 @@ include "../php/Check_Login.php";
             </div>
             <?php
             $nomeR = $_GET["nomeR"];
-            $rows = $db->query("SELECT nameRecipe FROM recipe WHERE (nameRecipe LIKE '%" . $nomeR . "%')");
-            $i = 01;
-            if ($rows->num_rows == 0) { ?>
-                <div class="col-md-12 bg-white ">
-                    <div class="box-text ">
-                        <p class="pt-3 text-center">
-                            La ricerca non ha avuto risultati
-                        </p>
+            $rows = $db->query("SELECT nameItem FROM vintage_items WHERE nameItem LIKE '%" . $nomeR . "%'");
+            $i = 1; // Utilizzo 1 invece di 01 per evitare interpretazioni errate
+            
+            if ($rows->num_rows === 0) {
+                echo '<div class="col-md-12 bg-white">
+            <div class="box-text">
+                <p class="pt-3 text-center">La ricerca non ha avuto risultati</p>
+            </div>
+        </div>';
+            } else {
+                foreach ($rows as $row) {
+                    ?>
+                    <div class="col-md-12 bg-white my-2">
+                        <div class="d-flex flex-row align-items-center">
+                            <h2 class="special-number">
+                                <?= $i ?>.
+                            </h2>
+                            <form action="Recipe.php" class="d-inline">
+                                <button type="submit" class="btn btn-link" name="nome">
+                                    <?= $row["nameItem"] ?>
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <?php
-            }
-
-            foreach ($rows as $row) {
-                ?>
-                <div class="col-md-12 bg-white my-2 d-flex flex-row">
-                    <h2 class="special-number">
-                        <?= $i ?>.
-                    </h2>
-                    <div class="box-text ">
-                        <form action="Recipe.php">
-                            <input type="submit" name="nome" value="<?= $row["nameRecipe"] ?>" />
-                        </form>
-                    </div>
-                </div>
-
-                <?php
-                $i++;
-
+                    <?php
+                    $i++;
+                }
             }
             ?>
+
         </div>
     </div>
 </section>

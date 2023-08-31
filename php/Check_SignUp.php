@@ -2,7 +2,6 @@
     #check sign up
     session_start();
     include "DB_Connection.php";
-    include "../html/header.html";
 
     if (isset($_SESSION['idUser'])){  ?>
         <div id="check-signup">
@@ -20,7 +19,7 @@
                                     <div class="box-text text-center ">
                                         <p class="pt-3 ">
                                             Vai alla home:
-                                            <form action="Home.php" method="get">
+                                            <form action="../pages/Home.php" method="get">
                                                 <p><label><input type="submit" name="submit"/></label></p>  
                                             </form> 
                                         </p>

@@ -52,49 +52,50 @@ $rows = $db->query("SELECT nickname FROM users WHERE idUser = '$_SESSION[idUser]
         <?php } ?>
 
         <div class="row">
-    <?php
-    $minItemId = 1;
-    $maxItemId = 20; // Modifica questo valore in base al numero totale di oggetti vintage
-        
-    $randomItemIds = array_rand(range($minItemId, $maxItemId), 6); // Modifica il numero di elementi visualizzati
-        
-    foreach ($randomItemIds as $itemId) {
-        $stmt = $db->prepare("SELECT * FROM vintage_items WHERE idItem = ?");
-        $stmt->bind_param("i", $itemId);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            ?>
-            <div class="col-4 mb-4">
-                <div class="card">
-                    <a href="dettaglio_oggetto.php?id=<?= $row["idItem"] ?>" class="thumb-menu">
-                        <img class="card-img-top" src="<?= $row["imgPath"] ?>" alt="<?= $row["nameItem"] ?>">
-                    </a>
-                    <div class="card-body">
-                        <h6 class="card-title">
-                            <?= $row["nameItem"] ?>
-                        </h6>
-                        <p class="card-text">
-                            <?= $row["description"] ?>
-                        </p>
-                        <p class="card-text"><strong>Price:</strong> €
-                            <?= $row["price"] ?>
-                        </p>
-                        <p class="card-text"><strong>Condition:</strong>
-                            <?= $row["condition"] ?>
-                        </p>
-                    </div>
-                </div>
-            </div>
             <?php
-        }
+            $minItemId = 1;
+            $maxItemId = 20; // Modifica questo valore in base al numero totale di oggetti vintage
+            
+            $randomItemIds = array_rand(range($minItemId, $maxItemId), 6); // Modifica il numero di elementi visualizzati
+            
+            foreach ($randomItemIds as $itemId) {
+                $stmt = $db->prepare("SELECT * FROM vintage_items WHERE idItem = ?");
+                $stmt->bind_param("i", $itemId);
+                $stmt->execute();
+                $result = $stmt->get_result();
 
-        $stmt->close();
-    }
-    ?>
-</div>
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    ?>
+                    <div class="col-sm-12 col-md-6  col-lg-4 mb-4">
+                        <div class="card">
+                            <a href="dettaglio_oggetto.php?id=<?= $row["idItem"] ?>" class="thumb-menu">
+                                <img class="card-img-top" src="<?= $row["imgPath"] ?>" alt="<?= $row["nameItem"] ?>">
+                            </a>
+                            <div class="card-body">
+                                <h6 class="card-title">
+                                    <?= $row["nameItem"] ?>
+                                </h6>
+                                <p class="card-text">
+                                    <?= $row["description"] ?>
+                                </p>
+                                <p class="card-text"><strong>Price:</strong> €
+                                    <?= $row["price"] ?>
+                                </p>
+                                <p class="card-text"><strong>Condition:</strong>
+                                    <?= $row["condition"] ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+                }
+
+                $stmt->close();
+            }
+            ?>
+        </div>
 
 
 

@@ -19,14 +19,14 @@ include "../php/Check_Login.php";
             <?php
             $nomeR = $_GET["nomeR"];
             $rows = $db->query("SELECT nameItem FROM vintage_items WHERE nameItem LIKE '%" . $nomeR . "%'");
-            $i = 1; // Utilizzo 1 invece di 01 per evitare interpretazioni errate
+            $i = 1; 
             
             if ($rows->num_rows === 0) {
                 echo '<div class="col-md-12 bg-white">
-            <div class="box-text">
-                <p class="pt-3 text-center">La ricerca non ha avuto risultati</p>
-            </div>
-        </div>';
+                            <div class="box-text">
+                                <p class="pt-3 text-center">La ricerca non ha avuto risultati</p>
+                            </div>
+                            </div>';
             } else {
                 foreach ($rows as $row) {
                     ?>

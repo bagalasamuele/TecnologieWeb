@@ -1,26 +1,23 @@
 <?php
-    session_start();
+session_start();
 include "DB_Connection.php";
-include "../html/head.html";
-    ?>
 
+if (isset($_GET['addfavorite'])) {
+    $item = $_GET['addfavorite'];
 
-<!DOCTYPE html>
+    // Verifica se l'item è già nei preferiti dell'utente
+    $query = $db->prepare("SELECT favorite FROM favorites WHERE favorite = ? AND idUser = ?");
+    $query->bind_param("ii", $item, $_SESSION["idUser"]);
+    $query->execute();
+    $result = $query->get_result();
 
-<body>
-    <div id="Add-favorite">
-        <?php
-        $item = $_GET['addfavorite'];
-        $rows = $db->query("SELECT favorite FROM favorites WHERE favorite ='$item' AND idUser ='$_SESSION[idUser]'");
-        if ($rows->num_rows == 0) { // Item is not in the favorite table yet
-            $query = $db->query("INSERT INTO favorites(idUser, favorite) VALUES ('$_SESSION[idUser]', '$item')")
-                or die('Operazione non riuscita' . mysqli_error());
-        } else {
-            // The item is already inside the favorite table, it will remove it from favorites
-            $rows = $db->query("DELETE FROM favorites WHERE favorite ='$item' AND idUser ='$_SESSION[idUser]'");
-        }
-        header('Location: Favorites.php');
-        ?>
-    </div>
-</body>
+    if ($result->num_rows == 0) { // L'item non è nella tabella dei preferiti ancora
+        $stmt = $db->prepare("INSERT INTO favorites(idUser, favorite) VALUES (?, ?)");
+        $stmt->bind_param("ii", $_SESSION["idUser"], $item);
+        $stmt->execute();
+        $stmt->close();
+    }
+}
 
+header('Location: Favorites.php');
+?>

@@ -1,76 +1,47 @@
-<?php 
-    #check sign up
-    session_start();
-    include "DB_Connection.php";
-
-    if (isset($_SESSION['idUser'])){  ?>
-        <div id="check-signup">
-            <div class="container-box">
-                <section id="box" class="bg-grey section-padding " >
-                    <div class="container-a">
-                        <div class="section-content">
-                            <div class="heading-section text-center">
-                                <h2>
-                                    Registrazione avvenuta correttamente
-                                </h2>
-                            </div>
-                            <div class="col-md-12 bg-white ridimensiona">
-                                    
-                                    <div class="box-text text-center ">
-                                        <p class="pt-3 ">
-                                            Vai alla home:
-                                            <form action="../pages/Home.php" method="get">
-                                                <p><label><input type="submit" name="submit"/></label></p>  
-                                            </form> 
-                                        </p>
-                                    </div>
-                            </div>                  
-                        </div>
-                    </div>
-                </section>
-                <!-- footer-section-->
-                <div class="col-md-12 bg-grey text-center">
-                <?php include "../html/footer.html"; ?></div>
-                <!--end-footer-section-->
-            </div>
-            <!--end-box-->
-        </div>  
-        <?php
-          
-    }else {?>
-    
-    <div class="InserimentoRicetta">
-            <div class="box">
-                <section id="box" class="bg-grey section-padding " >
-                    <div class="container-a">
-                        <div class="section-content">
-                            <div class="heading-section text-center">
-                                <h2>
-                                    Registrazione fallita
-                                </h2>
-                            </div>
-                            <div class="col-md-12 bg-white ridimensiona">
-                                    
-                                    <div class="box-text text-center ">
-                                        <p class="pt-3 ">
-                                            Torna alla registrazione:
-                                            <form action="../pages/SignUp.php" method="get">
-                                                <p><label><input type="submit" name="submit"/></label></p>  
-                                            </form> 
-                                        </p>
-                                    </div>
-                            </div>                  
-                        </div>
-                    </div>
-                </section>
-                <!-- footer-section-->
-                <div class="col-md-12 bg-grey text-center">
-                <?php include "../html/footer.html"; ?></div>
-                <!--end-footer-section-->
-            </div>
-            <!--end-box-->
-        </div> 
-    <?php
-    }
-    exit();
+<?php
+session_start();
+include "DB_Connection.php";
+include "../html/head.html";
 ?>
+
+<?php
+if (isset($_SESSION['idUser'])) {
+?>
+
+    <section class='container'>
+    <div class='row justify-content-center align-items-center mt-5'>
+        <h2>Registrazione avvenuta correttamente</h2>
+        <div>
+            <p>Vai alla home:</p>
+       <form action="../pages/Home.php" method="get">
+           <input type="submit" class="btn btn-primary" value="Home" />
+       </form>
+
+        </div>
+    </div>
+
+    </section>
+
+<?php
+} else {
+?>
+
+    <div>
+        <section class='container'>
+            <h2>Registrazione fallita</h2>
+            <div>
+                <p>Torna alla registrazione:</p>
+                <form action="../pages/SignUp.php" method="get">
+                    <input type="submit"  class="btn btn-primary" value="Back"/>
+                </form>
+            </div>
+        </section>
+    </div>
+
+<?php
+}
+?>
+
+<?php include "../html/footer.html"; ?>
+</body>
+</html>

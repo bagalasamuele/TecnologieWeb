@@ -69,7 +69,7 @@ $rows = $db->query("SELECT nickname FROM users WHERE idUser = '$_SESSION[idUser]
                     ?>
                     <div class="col-sm-12 col-md-6  col-lg-4 mb-4">
                         <div class="card">
-                            <a href="dettaglio_oggetto.php?id=<?= $row["idItem"] ?>" class="thumb-menu">
+                            <a href="Object.php?id=<?= $row["idItem"] ?>" class="thumb-menu">
                                 <img class="card-img-top" src="<?= $row["imgPath"] ?>" alt="<?= $row["nameItem"] ?>">
                             </a>
                             <div class="card-body">

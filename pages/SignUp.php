@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
                 $query = $db->query("SELECT idUser FROM users WHERE nickname = '$nickname'");
                 foreach ($query as $row) {
                     $_SESSION['idUser'] = $row['idUser'];
-                    $_SESSION['session_userRole'] = $role;
+                    $_SESSION['role'] = $role;
                 }
                 header('Location: ../php/Check_SignUp.php');
                 exit;

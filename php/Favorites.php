@@ -17,7 +17,7 @@ include "../html/header.html";
             </div>
 
             <?php
-            $test = 0;
+            $i = 0;
 
             $arr = array();
             $queryR = "SELECT vintage_items.idItem, vintage_items.nameItem, vintage_items.imgPath FROM vintage_items INNER JOIN favorites ON vintage_items.idItem = favorites.favorite INNER JOIN users ON favorites.idUser = users.idUser WHERE users.idUser='$_SESSION[idUser]' ORDER BY vintage_items.nameItem";
@@ -62,7 +62,7 @@ include "../html/header.html";
                     </div>
                 </div>
             <?php
-                $test++;
+                $i++;
             }
             echo '</div>';
             ?>
@@ -70,4 +70,4 @@ include "../html/header.html";
     </div>
 </body>
 <?php include "../html/footer.html"; ?>
-</html>
+

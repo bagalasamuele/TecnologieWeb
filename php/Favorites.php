@@ -69,4 +69,5 @@ include "../html/header.html";
         </section>
     </div>
 </body>
+<?php include "../html/footer.html"; ?>
 </html>

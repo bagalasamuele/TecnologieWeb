@@ -1,7 +1,6 @@
 <html>
-<?php include "../html/head.html"; ?>
-<?php include "../html/header.html"; ?>
-<?php
+<?php include "../html/head.html";
+include "../html/header.html";
 session_start();
 include "../php/DB_Connection.php";
 include "../php/Check_Login.php";

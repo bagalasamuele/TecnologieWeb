@@ -4,17 +4,21 @@ include "DB_Connection.php";
 include "../html/head.html";
 include "../html/header.html";
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 if (isset($_POST['submit'])) {
     $itemName = $_POST['nomeOggetto'];
     $description = $_POST['descrizione'];
     $price = $_POST['prezzo'];
     $imgPath = $_POST['imgPath'];
-    $condition = $_POST['condition']; // Aggiunto il campo 'condition'
+    $condition = $_POST['condition'];
+    $userID = $_SESSION['idUser']; // Aggiunto il recupero dell'ID dell'utente loggato
 
     if ($itemName && $description && $price && $imgPath && $condition) {
-        $query = "INSERT INTO vintage_items(nameItem, description, price, imgPath, `condition`)
-        VALUES('$itemName', '$description', '$price', '$imgPath', '$condition') ";
+        $query = "INSERT INTO vintage_items (idUser, nameItem, description, price, imgPath, `condition`)
+                  VALUES ('$userID', '$itemName', '$description', '$price', '$imgPath', '$condition') ";
 
         if ($db->query($query) === TRUE) {
             echo '<div class="alert alert-success" role="alert">Inserimento avvenuto con successo</div>';
@@ -55,7 +59,11 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="form-group">
                         <label for="condition">Condizione:</label>
-                        <input type="text" class="form-control" name="condition" required>
+                        <select class="form-control" name="condition" required>
+                            <option value="Nuovo">Nuovo</option>
+                            <option value="Usato">Usato</option>
+                            <option value="Ricondizionato">Ricondizionato</option>
+                        </select>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary">Inserisci</button>
                 </form>

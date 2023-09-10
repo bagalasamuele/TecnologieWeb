@@ -36,7 +36,7 @@ include "../html/head.html";
             </div>
             <?php
         }
-
+        echo '<div class="row">';
         foreach ($rows as $row) {
             $arr[] = array(
                 'nomeOggetto' => $row['nameItem'],
@@ -47,6 +47,7 @@ include "../html/head.html";
 
         foreach ($arr as $stampa) {
             ?>
+
             <div class="col-md-4 my-2">
                 <div class="card">
                     <img src="<?= $stampa["imgOggetto"] ?>" class="card-img-top" alt="<?= $stampa["nomeOggetto"] ?>">
@@ -67,6 +68,7 @@ include "../html/head.html";
             </div>
             <?php
         }
+        echo '</div>';
         ?>
     </section>
 </div>

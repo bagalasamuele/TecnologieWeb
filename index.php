@@ -23,7 +23,7 @@
             $password = $db->real_escape_string(strip_tags($password));
             $passwordHash = md5($password);
 
-            // Query per verificare le credenziali dell'utente
+            // Query per verificare credenziali dell'utente
             $query = $db->query("SELECT idUser, nickname, role FROM users WHERE nickname='$nickname' AND password='$passwordHash'");
 
             if ($query->num_rows === 1) {

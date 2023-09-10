@@ -5,7 +5,7 @@ include "../html/head.html";
 include "../html/header.html";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['purchase'])) {
-    // Esegui l'acquisto e rimuovi gli oggetti dal carrello e dalla tabella "vintage_items"
+    // aquisto e cancello oggetti dal carrello
     $idUser = $_SESSION['idUser'];
     $queryR = "SELECT vintage_items.idItem FROM vintage_items INNER JOIN favorites ON vintage_items.idItem = favorites.favorite WHERE favorites.idUser='$idUser'";
     $result = $db->query($queryR);
@@ -13,13 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['purchase'])) {
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $idItem = $row['idItem'];
-            // Esegui la query per rimuovere l'oggetto dalla tabella "vintage_items"
             $queryDelete = "DELETE FROM vintage_items WHERE idItem='$idItem'";
             $db->query($queryDelete);
         }
     }
 
-    // Ora puoi rimuovere tutti gli oggetti dal carrello
     $queryDeleteFavorites = "DELETE FROM favorites WHERE idUser='$idUser'";
     if ($db->query($queryDeleteFavorites)) {
         $message = "Acquisto effettuato con successo!";

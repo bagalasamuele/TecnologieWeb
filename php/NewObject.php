@@ -3,12 +3,12 @@ session_start();
 include "DB_Connection.php";
 include "../html/head.html";
 include "../html/header.html";
-include "../php/Check_Login.php"; // Assicurati che il file di check_login sia incluso
+include "../php/Check_Login.php";
 
-// Verifica se l'utente è autenticato e ha il ruolo "admin"
+// Verificare accesso, (solo se admin)
 if (!isset($_SESSION['idUser']) || $_SESSION['role'] !== 'admin') {
     echo '<div class="alert alert-danger container" role="alert">Solo gli amministratori possono accedere a questa pagina.</div>';
-    header('refresh:3;url=../pages/home.php'); // Reindirizza alla home dopo 3 secondi
+    header('refresh:3;url=../pages/home.php');
     exit();
 }
 
@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     $price = $_POST['prezzo'];
     $imgPath = $_POST['imgPath'];
     $condition = $_POST['condition'];
-    $userID = $_SESSION['idUser']; // Aggiunto il recupero dell'ID dell'utente loggato
+    $userID = $_SESSION['idUser'];
 
     if ($itemName && $description && $price && $imgPath && $condition) {
         $query = "INSERT INTO vintage_items (idUser, nameItem, description, price, imgPath, `condition`)
@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
 
         if ($db->query($query) === TRUE) {
             echo '<div class="alert alert-success" role="alert">Inserimento avvenuto con successo</div>';
-            header('refresh:3;url=CheckNewItem.php'); // Reindirizza a CheckNewItem.php dopo 3 secondi
+            header('refresh:3;url=CheckNewItem.php');
             exit();
         } else {
             echo '<div class="alert alert-danger" role="alert">Errore: ' . $db->error . '</div>';

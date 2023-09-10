@@ -54,8 +54,7 @@ include "../php/Check_Login.php";
     </div>
 </section>
 
-<!-- footer-section-->
+
 <div class="col-md-12 bg-grey text-center">
     <?php include "../html/footer.html"; ?>
 </div>
-<!--end-footer-section-->

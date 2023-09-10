@@ -60,7 +60,7 @@ $selectedItemIds = array_slice($itemIds, 0, $numberOfItems); // Prendi i primi $
         <?php
         foreach ($rows as $row) {
         ?>
-        Bentornato
+        Benvenuto
         <?= $row["nickname"] ?>!
     </h2>
     <?php } ?>

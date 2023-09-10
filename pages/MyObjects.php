@@ -53,9 +53,9 @@ include "../html/head.html";
                     <div class="card-body text-center">
                         <h5 class="card-title"><?= $stampa["nomeOggetto"] ?></h5>
                         <div class="d-flex justify-content-between">
-                            <form action="Update_Item.php" method="get">
-                                <input type='hidden' name='idOggetto' value="<?= $stampa["idOggetto"] ?>">
-                                <button type="submit" class="btn btn-primary">Modifica</button>
+                            <form action="../pages/Object.php" method="get">
+                                <input type="hidden" name="id" value="<?= $stampa["idOggetto"] ?>">
+                                <button type="submit" class="btn btn-primary">Visualizza</button>
                             </form>
                             <form method="get" action="Delete_Item.php" enctype="multipart/form-data">
                                 <input type='hidden' name='idItem' value='<?= $stampa["idOggetto"] ?>'>

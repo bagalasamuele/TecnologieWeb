@@ -11,7 +11,7 @@ include "../html/header.html";
             <div class="row">
                 <div class="col">
                     <div class="text-center">
-                        <h1>La tua lista desideri</h1>
+                        <h1>Il tuo carrello</h1>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@ include "../html/header.html";
                             <h5 class="card-title"><?= $print["nomeOggetto"] ?></h5>
                             <form action="../pages/Object.php" method="get">
                                 <input type="hidden" name="id" value="<?= $print["idItem"] ?>">
-                                <button type="submit" class="btn btn-primary">Vai al tuo oggetto</button>
+                                <button type="submit" class="btn btn-primary">Visualizza</button>
                             </form>
                         </div>
                     </div>

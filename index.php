@@ -37,7 +37,7 @@
                 // Creazione della sessione utente
                 session_regenerate_id();
                 $_SESSION['idUser'] = $row->idUser;
-                $_SESSION['session_userRole'] = $user_role;
+                $_SESSION['role'] = $user_role;
 
                 // Reindirizzamento alla pagina Home
                 header('Location: pages/Home.php');

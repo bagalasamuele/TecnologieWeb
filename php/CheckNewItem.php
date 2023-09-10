@@ -1,44 +1,32 @@
-<?php session_start(); 
+<?php
+session_start();
 include "DB_Connection.php";
 include "../html/head.html";
 include "../html/header.html";
+header("refresh:2;url=../pages/Home.php");
 ?>
-    <body>
-        <?php 
-        include "../php/navbar.php";
 
-        #migliorare html/css
-        ?>
-        <div id="Check-Recipe">
-            <div class="container-box">
-                <section id="box" class="bg-grey section-padding " >
-                    <div class="container-a">
-                        <div class="section-content">
-                            <div class="heading-section text-center">
-                                <h2>
-                                    Ricetta inserita correttamente
-                                </h2>
-                            </div>
-                            <div class="col-md-12 bg-white ridimensiona">
-                                    
-                                    <div class="box-text text-center ">
-                                        <p class="pt-3 ">
-                                            Torna alla home:
-                                            <form action="../pages/Home.php" >
-                                                <p><label><input type="submit" value="Home"/></label></p>
-                                            </form> 
-                                        </p>
-                                    </div>
-                            </div>                  
-                        </div>
-                    </div>
-                </section>
-                <!-- footer-section-->
-                <div class="col-md-12 bg-grey text-center">
-                <?php include "../html/footer.html"; ?></div>
-                <!--end-footer-section-->
+<body>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Oggetto inserito correttamente</h2>
             </div>
-            <!--end-box-->
+            <div class="col-md-12">
+                <p>Torna alla home:</p>
+                <form action="../pages/Home.php">
+                    <label><input type="submit" class="btn btn-primary" value="Home" /></label>
+                </form>
+            </div>
         </div>
-    </body>
+    </div>
+</section>
+
+<div>
+    <?php include "../html/footer.html"; ?>
+</div>
+
+</body>
+
 </html>

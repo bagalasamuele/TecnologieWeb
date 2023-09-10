@@ -1,0 +1,51 @@
+@import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css';
+body {
+  background: linear-gradient(to bottom, #f9f9f9, rgba(249, 249, 249, 0.8));
+}
+
+.header-background {
+  background-color: #dee2e6;
+}
+
+.header-title {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #3d3b3b;
+  text-decoration: none;
+}
+
+.header-title:hover {
+  color: #aba4a4;
+}
+
+a:visited {
+  color: #3d3b3b;
+}
+
+.hide {
+  display: none;
+}
+
+.is-empty-label {
+  border: 1px solid red;
+}
+
+.error-message {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.two-select-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 992px) {
+  .two-select-row {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -23,7 +23,7 @@
             $password = $db->real_escape_string(strip_tags($password));
             $passwordHash = md5($password);
 
-            // Query per verificare le credenziali dell'utente
+            // Query per verificare credenziali dell'utente
             $query = $db->query("SELECT idUser, nickname, role FROM users WHERE nickname='$nickname' AND password='$passwordHash'");
 
             if ($query->num_rows === 1) {
@@ -37,7 +37,7 @@
                 // Creazione della sessione utente
                 session_regenerate_id();
                 $_SESSION['idUser'] = $row->idUser;
-                $_SESSION['session_userRole'] = $user_role;
+                $_SESSION['role'] = $user_role;
 
                 // Reindirizzamento alla pagina Home
                 header('Location: pages/Home.php');

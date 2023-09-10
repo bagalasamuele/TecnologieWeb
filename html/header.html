@@ -1,5 +1,14 @@
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+<link href="/TecnologieWeb/assets/css/style.css" rel="stylesheet">
 <header>
-    <div class="px-3 bg-dark text-white">
+
+    <div class="px-3 header-background text-white">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <div class="col-md-4">
@@ -12,18 +21,23 @@
                 <div class="col-md-8 d-flex flex-row-reverse">
                     <ul class="nav my-2 justify-content-center my-md-0 text-small">
                         <li>
-                            <a href="/TecnologieWeb/pages/Home.php" class="nav-link text-white ">
+                            <a href="/TecnologieWeb/pages/Home.php" class="header-title nav-link ">
                                 Home
                             </a>
                         </li>
                         <li>
-                                <a href="/TecnologieWeb/php/Favorites.php" class="nav-link text-secondary">
-                                Preferiti
+                                <a href="/TecnologieWeb/php/Favorites.php" class="header-title nav-link ">
+                                Carrello
+                            </a>
+                        </li>
+                        <li id="sellObject">
+                            <a href="/TecnologieWeb/php/NewObject.php"  class="header-title nav-link">
+                                Vendi
                             </a>
                         </li>
                         <li>
-                            <a href="/TecnologieWeb/php/NewObject.php"  class="nav-link text-secondary">
-                                Vendi
+                            <a id="myObject" href="/TecnologieWeb/pages/MyObjects.php"  class="header-title nav-link ">
+                                I miei oggetti
                             </a>
                         </li>
                     </ul>
@@ -51,3 +65,13 @@
         </div>
     </div>
 </header>
+
+
+
+
+
+
+
+
+
+

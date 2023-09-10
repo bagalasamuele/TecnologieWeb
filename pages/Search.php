@@ -18,15 +18,15 @@ include "../php/Check_Login.php";
             </div>
             <?php
             $nomeR = $_GET["nomeR"];
-            $rows = $db->query("SELECT nameItem FROM vintage_items WHERE nameItem LIKE '%" . $nomeR . "%'");
-            $i = 1; 
-            
+            $rows = $db->query("SELECT idItem, nameItem FROM vintage_items WHERE nameItem LIKE '%" . $nomeR . "%'");
+            $i = 1;
+
             if ($rows->num_rows === 0) {
                 echo '<div class="col-md-12 bg-white">
-                            <div class="box-text">
-                                <p class="pt-3 text-center">La ricerca non ha avuto risultati</p>
-                            </div>
-                            </div>';
+                <div class="box-text">
+                    <p class="pt-3 text-center">La ricerca non ha avuto risultati</p>
+                </div>
+            </div>';
             } else {
                 foreach ($rows as $row) {
                     ?>
@@ -35,8 +35,9 @@ include "../php/Check_Login.php";
                             <h2 class="special-number">
                                 <?= $i ?>.
                             </h2>
-                            <form action="Recipe.php" class="d-inline">
-                                <button type="submit" class="btn btn-link" name="nome">
+                            <form action="Object.php" method="get" class="d-inline">
+                                <input type="hidden" name="id" value="<?= $row["idItem"] ?>">
+                                <button type="submit" class="btn btn-link">
                                     <?= $row["nameItem"] ?>
                                 </button>
                             </form>
@@ -48,12 +49,12 @@ include "../php/Check_Login.php";
             }
             ?>
 
+
         </div>
     </div>
 </section>
 
-<!-- footer-section-->
+
 <div class="col-md-12 bg-grey text-center">
     <?php include "../html/footer.html"; ?>
 </div>
-<!--end-footer-section-->

@@ -7,7 +7,10 @@
 </head>
 
 
-<?php 
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 function startNewsession(){
     if(session_status() === true){
         session_start();
@@ -26,20 +29,19 @@ if (isset($_POST['submit'])) {
     $nickname = $_POST['newNickname']; 
     $email = $_POST['email'];
     $pwd = md5($_POST['newPassword']); 
-    $checkpwd = md5($_POST['checkPassword']); 
-    $diet = $_POST['diet'];
+    $checkpwd = md5($_POST['checkPassword']);
     $role = $_POST['role'];
 
-    if ($name && $lastname && $nickname && $email && $pwd && $checkpwd && $diet && $role) {
+    if ($name && $lastname && $nickname && $email && $pwd && $checkpwd && $role) {
         if ($pwd == $checkpwd) {
             // Prepared statements per evitare SQL injection
-            $stmt = $db->prepare("INSERT INTO users(name, lastname, nickname, email, password, diet, role) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssss", $name, $lastname, $nickname, $email, $pwd, $diet, $role);
+            $stmt = $db->prepare("INSERT INTO users(name, lastname, nickname, email, password, role) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssss", $name, $lastname, $nickname, $email, $pwd, $role);
             if ($stmt->execute()) {
                 $query = $db->query("SELECT idUser FROM users WHERE nickname = '$nickname'");
                 foreach ($query as $row) {
                     $_SESSION['idUser'] = $row['idUser'];
-                    $_SESSION['session_userRole'] = $role;
+                    $_SESSION['role'] = $role;
                 }
                 header('Location: ../php/Check_SignUp.php');
                 exit;
@@ -99,14 +101,6 @@ if (isset($_POST['submit'])) {
                                     <select name="role" class="form-select">
                                         <option value="user">User</option>
                                         <option value="admin">Admin</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3 col-xs-12 col-md-6 px-1">
-                                    <label for="diet" class="form-label">Regime alimentare:</label>
-                                    <select name="diet" class="form-select">
-                                        <option value="onnivoro">Onnivoro</option>
-                                        <option value="vegetariano">Vegetariano</option>
-                                        <option value="vegano">Vegano</option>
                                     </select>
                                 </div>
                             </div>

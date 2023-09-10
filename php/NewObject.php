@@ -45,23 +45,23 @@ if (isset($_POST['submit'])) {
         </div>
         <div>
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label for="nomeOggetto">Nome:</label>
                     <input type="text" class="form-control" name="nomeOggetto" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label for="descrizione">Descrizione:</label>
                     <textarea class="form-control" name="descrizione" rows="5" placeholder="Inserisci la descrizione" required></textarea>
                 </div>
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label for="prezzo">Prezzo:</label>
                     <input type="number" step="0.01" class="form-control" name="prezzo" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label for="imgPath">Immagine (URL):</label>
                     <input type="url" class="form-control" name="imgPath" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label for="condition">Condizione:</label>
                     <select class="form-control" name="condition" required>
                         <option value="Nuovo">Nuovo</option>

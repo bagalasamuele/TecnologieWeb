@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['purchase'])) {
                     <div class="text-center">
                         <h3>Non hai ancora inserito nessun oggetto tra i preferiti.</h3>
                         <p>Torna indietro per aggiungerne alcuni:<br>
-                            <input type="button" onclick="document.location.href='Home.php';" value="Home" class="btn btn-primary mt-4"></p>
+                            <input type="button" onclick="document.location.href='../pages/Home.php';" value="Home" class="btn btn-primary mt-4"></p>
                     </div>
                 </div>
             </div>
@@ -92,9 +92,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['purchase'])) {
 
         <form method="post" action="">
             <div class="text-center">
-                <button type="submit" name="purchase" class="btn btn-success mt-4">Effettua Acquisto</button>
+                <?php if ($count >= 1) { ?>
+                    <button type="submit" name="purchase" class="btn btn-success mt-4">Effettua Acquisto</button>
+                <?php } ?>
             </div>
         </form>
+
 
     </section>
 </div>

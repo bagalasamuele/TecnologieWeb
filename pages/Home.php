@@ -68,8 +68,8 @@ $selectedItemIds = array_slice($itemIds, 0, $numberOfItems); // Prendi i primi $
     <div class="row">
         <?php
         foreach ($selectedItemIds as $itemId) {
-            $stmt = $db->prepare("SELECT * FROM vintage_items WHERE idItem = ?");
-            $stmt->bind_param("i", $itemId);
+            $stmt = $db->prepare("SELECT * FROM vintage_items WHERE idItem = ? AND idUser != ?");
+            $stmt->bind_param("ii", $itemId, $_SESSION['idUser']);
             $stmt->execute();
             $result = $stmt->get_result();
             if ($result->num_rows > 0) {

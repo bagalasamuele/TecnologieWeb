@@ -1,4 +1,7 @@
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <header>
+
     <div class="px-3 bg-dark text-white">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -21,7 +24,7 @@
                                 Carrello
                             </a>
                         </li>
-                        <li>
+                        <li id="vendiLink">
                             <a href="/TecnologieWeb/php/NewObject.php"  class="nav-link text-secondary">
                                 Vendi
                             </a>
@@ -56,3 +59,32 @@
         </div>
     </div>
 </header>
+
+<script >
+    $.ajax({
+        url: '../php/getSessionData.php', // Assicurati che questo sia l'URL corretto per ottenere i dati di sessione
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            var userRole = data.session_userRole;
+            console.log(userRole);
+            // Nascondi il link "Vendi" se il ruolo non è "admin"
+            if (userRole !== 'admin') {
+                $('#vendiLink').hide();
+            }
+        },
+        error: function () {
+            console.log('error');
+            // Gestisci gli errori se la richiesta AJAX fallisce
+        }
+    });
+
+</script>
+
+
+
+
+
+
+
+

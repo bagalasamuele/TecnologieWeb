@@ -7,10 +7,29 @@ body {
 }
 
 
-.custom-header{
-    background-color:#9c9c9c;
+.header-background{
+    background-color:#dee2e6;
 }
 
+
+.header-title {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #3d3b3b;
+    text-decoration: none;
+}
+
+.header-title:hover {
+    color: #aba4a4;
+}
+
+a:visited {
+    color: #3d3b3b;
+}
+
+.hide{
+    display: none;
+}
 .is-empty-label {
     border: 1px solid red;
 }

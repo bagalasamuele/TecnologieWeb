@@ -18,7 +18,6 @@ include "../html/header.html";
 
             <?php
             $i = 0;
-
             $arr = array();
             $queryR = "SELECT vintage_items.idItem, vintage_items.nameItem, vintage_items.imgPath FROM vintage_items INNER JOIN favorites ON vintage_items.idItem = favorites.favorite INNER JOIN users ON favorites.idUser = users.idUser WHERE users.idUser='$_SESSION[idUser]' ORDER BY vintage_items.nameItem";
             $rows = $db->query($queryR);
@@ -47,15 +46,15 @@ include "../html/header.html";
                 );
             }
 
-            foreach ($arr as $stampa) {
+            foreach ($arr as $print) {
             ?>
                 <div class="col-md-4 my-2">
                     <div class="card">
-                        <img src="<?= $stampa["imgOggetto"] ?>" class="card-img-top" alt="<?= $stampa["nomeOggetto"] ?>">
+                        <img src="<?= $print["imgOggetto"] ?>" class="card-img-top" alt="<?= $print["nomeOggetto"] ?>">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $stampa["nomeOggetto"] ?></h5>
+                            <h5 class="card-title"><?= $print["nomeOggetto"] ?></h5>
                             <form action="../pages/Object.php" method="get">
-                                <input type="hidden" name="id" value="<?= $stampa["idItem"] ?>">
+                                <input type="hidden" name="id" value="<?= $print["idItem"] ?>">
                                 <button type="submit" class="btn btn-primary">Vai al tuo oggetto</button>
                             </form>
                         </div>

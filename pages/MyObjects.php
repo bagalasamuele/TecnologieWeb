@@ -20,7 +20,6 @@ include "../html/head.html";
         <?php
         $arr = array();
         $rows = $db->query("SELECT vintage_items.nameItem, vintage_items.imgPath, vintage_items.idItem FROM vintage_items WHERE idUser='$_SESSION[idUser]'");
-
         $count = mysqli_num_rows($rows);
 
         if ($count == 0) {
@@ -71,6 +70,6 @@ include "../html/head.html";
         ?>
     </section>
 </div>
-<!--end-item-management-section-->
+
 </body>
 </html>

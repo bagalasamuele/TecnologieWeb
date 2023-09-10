@@ -28,8 +28,8 @@ include "../html/head.html";
                 <div class="col">
                     <div class="text-center">
                         <h3>Non hai ancora inserito nessun oggetto.</h3>
-                        <p>Clicca qui per inserirne uno:
-                            <input type="button" onclick="document.location.href='NewObject.php';" value="Vai all'inserimento" class="btn btn-primary mt-4">
+                        <p>Clicca qui per inserirne uno:<br>
+                            <input type="button" onclick="document.location.href='../php/NewObject.php';" value="Vendi" class="btn btn-primary mt-4">
                         </p>
                     </div>
                 </div>
@@ -58,7 +58,7 @@ include "../html/head.html";
                                 <input type="hidden" name="id" value="<?= $stampa["idOggetto"] ?>">
                                 <button type="submit" class="btn btn-primary">Visualizza</button>
                             </form>
-                            <form method="get" action="Delete_Item.php" enctype="multipart/form-data">
+                            <form method="get" action="../php/DeleteItem.php" enctype="multipart/form-data">
                                 <input type='hidden' name='idItem' value='<?= $stampa["idOggetto"] ?>'>
                                 <button type="submit" class="btn btn-danger">Rimuovi</button>
                             </form>

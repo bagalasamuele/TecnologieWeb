@@ -54,7 +54,7 @@ include "../php/Check_Login.php";
                                         ?>
                                         <form method="get" action="../php/RemoveFavorite.php">
                                             <input type="hidden" name="removefavorite" value="<?= $row["idItem"] ?>">
-                                            <button class="btn btn-danger" title="Rimuovi dai preferiti">Rimuovi dalla Lista desideri</button>
+                                            <button class="btn btn-danger" title="Rimuovi dai preferiti">Rimuovi dal carrello</button>
                                         </form>
                                         <?php
                                     } else {

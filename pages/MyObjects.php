@@ -4,6 +4,14 @@ include "../php/DB_Connection.php";
 include "../php/Check_Login.php";
 include "../html/header.html";
 include "../html/head.html";
+
+
+// Verifica se l'utente è autenticato e ha il ruolo "admin"
+if (!isset($_SESSION['idUser']) || $_SESSION['role'] !== 'admin') {
+    echo '<div class="alert alert-danger container" role="alert">Solo gli amministratori possono accedere a questa pagina.</div>';
+    header('refresh:3;url=../pages/home.php'); // Reindirizza alla home dopo 3 secondi
+    exit();
+}
 ?>
 <body>
 
